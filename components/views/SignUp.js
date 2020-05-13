@@ -6,39 +6,46 @@ import AppTextInput from "../helperviews/AppTextInput";
 import Loading from "../helperviews/Loading";
 import SocialIconButton from "../helperviews/SocialIconButon";
 
-function Login() {
+function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLoading = () => {
     setIsLoading(true);
   };
+
+  const validateUser = () => {};
   return (
     <View style={styles.container}>
       <AppTextInput
-        placeholder={"E-mail"}
-        value={email}
-        onChangeText={(email) => setEmail(email)}
+        placeholder={"Name"}
+        onChangeText={(name) => setName(name)}
+        value={name}
       />
       <AppTextInput
-        placeholder={"password"}
-        value={password}
-        onChangeText={(password) => setPassword(password)}
+        placeholder={"E-mail"}
+        onChangeText={(email) => setEmail(email)}
+        value={email}
       />
-
+      <AppTextInput
+        placeholder={"Password"}
+        onChangeText={(password) => setPassword(password)}
+        value={password}
+      />
       <AppButton
         shadow={true}
         btnStyle={{ backgroundColor: "#15C39A" }}
         btnTextStyle={{ color: "white" }}
+        onPress={handleLoading}
       >
-        Log In
+        Sign Up
       </AppButton>
-      <AppButton btnTextStyle={{ color: "#15C39A", fontSize: 12 }}>
-        Forgot Pasword?
+      <AppButton btnTextStyle={{ color: "#15C39A", fontSize: 10 }}>
+        By signing up you agree to our Terms of Use
       </AppButton>
-
-      <Text style={{ height: "20%" }}></Text>
+      <Text style={{ height: "10%" }}></Text>
       <Loading loading={isLoading} />
       <View style={{ width: "80%", marginTop: 50 }}>
         <SocialIconButton icon="facebook-square" btnStyle="rgb(66, 103, 178)">
@@ -62,15 +69,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 20,
   },
-  textinputs: {
-    flex: 10,
-    alignItems: "center",
-    marginTop: 50,
-  },
-  buttontext: {
-    flex: 2,
-    justifyContent: "flex-end",
-  },
   googleButton: {
     backgroundColor: "rgb(221, 75, 57)",
     opacity: 1,
@@ -80,4 +78,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default SignUp;
