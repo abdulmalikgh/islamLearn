@@ -4,7 +4,7 @@ import { View, StyleSheet, Text } from "react-native";
 import AppButton from "../helperviews/AppButton";
 import AppTextInput from "../helperviews/AppTextInput";
 import Loading from "../helperviews/Loading";
-import SocialIconButton from "../helperviews/SocialIconButon";
+import SocialIconButton from "../helperviews/SocialIconButton";
 
 function SignUp() {
   const [email, setEmail] = useState("");

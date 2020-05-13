@@ -4,15 +4,18 @@ import { View, StyleSheet, Text } from "react-native";
 import AppButton from "../helperviews/AppButton";
 import AppTextInput from "../helperviews/AppTextInput";
 import Loading from "../helperviews/Loading";
-import SocialIconButton from "../helperviews/SocialIconButon";
+import SocialIconButton from "../helperviews/SocialIconButton";
 
-function Login() {
+function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLoading = () => {
     setIsLoading(true);
+  };
+  const handleLogIn = () => {
+    navigation.navigate("Dashboard");
   };
   return (
     <View style={styles.container}>
@@ -31,6 +34,7 @@ function Login() {
         shadow={true}
         btnStyle={{ backgroundColor: "#15C39A" }}
         btnTextStyle={{ color: "white" }}
+        onPress={() => handleLogIn()}
       >
         Log In
       </AppButton>

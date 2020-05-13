@@ -3,10 +3,18 @@ import React from "react";
 import { View, StatusBar } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
+import { createBottomTabNavigator } from "react-navigation-tabs";
 
 import AppEntry from "./components/views/AppEntry";
 import Login from "./components/views/Login";
 import SignUp from "./components/views/SignUp";
+import Learn from "./components/sections/Learn";
+
+const TabNavigation = createBottomTabNavigator({
+  Learn: {
+    screen: Learn,
+  },
+});
 
 const StackNavigation = createStackNavigator(
   {
@@ -26,6 +34,12 @@ const StackNavigation = createStackNavigator(
       screen: SignUp,
       navigationOptions: {
         title: "Sign Up",
+      },
+    },
+    Dashboard: {
+      screen: TabNavigation,
+      navigationOptions: {
+        headerShown: false,
       },
     },
   },
